@@ -40,7 +40,7 @@ Don't be afraid to get creative and have some fun!
 ## Installation instructions
 
  - Clone this repository to your local directory to be served from
- - Run "computer update" to make sure your installation is up to date.
+ - Run "composer update" to make sure your installation is up to date.
  - Copy the .env.example file to a new .env file within the "my-loan-app" directory
  - Run "php artisan key:generate"
  - Load site
