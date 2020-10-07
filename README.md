@@ -41,6 +41,5 @@ Don't be afraid to get creative and have some fun!
 
  - Clone this repository to your local directory to be served from
  - Run "composer update" to make sure your installation is up to date.
- - Copy the .env.example file to a new .env file within the "my-loan-app" directory
- - Run "php artisan key:generate"
+ - Copy the .env.develop file to a new file called ".env", within the "my-loan-app" root directory
  - Load site
