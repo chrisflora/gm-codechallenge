@@ -6,30 +6,30 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateApplications extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        //
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		//
 		Schema::create('loan_applications', function (Blueprint $table) {
 			$table->increments('id');
-            $table->datetime('deleted_at');
+			$table->datetime('deleted_at');
 			$table->timestamps();
 		});
 
-    }
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		//
 		Schema::drop('loan_applications');
-    }
+	}
 }

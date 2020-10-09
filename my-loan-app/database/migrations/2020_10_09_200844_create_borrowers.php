@@ -6,22 +6,22 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateBorrowers extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
 
 		Schema::create('borrowers', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('first_name');
 			$table->string('last_name');
-            $table->string('job_title');
-            $table->integer('annual_income');
-            $table->string('bank_account');
-            $table->datetime('deleted_at');
+			$table->string('job_title');
+			$table->integer('annual_income');
+			$table->string('bank_account');
+			$table->datetime('deleted_at');
 			$table->timestamps();
 		});
 
@@ -33,17 +33,17 @@ class CreateBorrowers extends Migration
 			$table->timestamps();
 		});
 
-    }
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		//
 		Schema::drop('borrowers');
 		Schema::drop('loan_app_borrowers');
-    }
+	}
 }
