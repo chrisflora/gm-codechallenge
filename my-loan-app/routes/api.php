@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\LoanApplication;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,24 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('loanapp/{id}', function($id) {
+
+	$resultLoanApp = [];
+    $loanApp = LoanApplication::find($id);
+
+	$resultLoanApp['id'] = $loanApp->id;
+	$resultLoanApp['total_annual_income'] = 0;
+	$resultLoanApp['bank_accounts'] = [];
+	foreach($loanApp->borrowers as $b)
+	{
+		$resultLoanApp['total_annual_income'] += $b->annual_income;
+		if(!empty($b->bank_account))
+		{
+			$resultLoanApp['bank_accounts'][] = $b->bank_account;
+		}
+	}
+
+	return json_encode($resultLoanApp);
 });

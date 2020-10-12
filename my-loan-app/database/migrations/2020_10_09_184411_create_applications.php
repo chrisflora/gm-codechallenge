@@ -16,7 +16,7 @@ class CreateApplications extends Migration
 		//
 		Schema::create('loan_applications', function (Blueprint $table) {
 			$table->increments('id');
-			$table->datetime('deleted_at');
+			$table->timestamp('deleted_at')->nullable()->default(null);
 			$table->timestamps();
 		});
 

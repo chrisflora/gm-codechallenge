@@ -18,10 +18,10 @@ class CreateBorrowers extends Migration
 			$table->increments('id');
 			$table->string('first_name');
 			$table->string('last_name');
-			$table->string('job_title');
-			$table->integer('annual_income');
-			$table->string('bank_account');
-			$table->datetime('deleted_at');
+			$table->string('job_title')->nullable();
+			$table->integer('annual_income')->nullable();
+			$table->string('bank_account')->nullable();
+			$table->timestamp('deleted_at')->nullable()->default(null);
 			$table->timestamps();
 		});
 
@@ -29,7 +29,7 @@ class CreateBorrowers extends Migration
 			$table->increments('id');
 			$table->integer('loan_application_id');
 			$table->integer('borrower_id');
-			$table->datetime('deleted_id');
+			$table->timestamp('deleted_at')->nullable()->default(null);
 			$table->timestamps();
 		});
 
