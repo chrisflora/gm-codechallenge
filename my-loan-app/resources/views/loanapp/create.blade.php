@@ -1,4 +1,5 @@
 <h1>Apply For Loan</h1>
+<link href="/css/app.css" rel="stylesheet"> 
 
 
 <form class="form-horizontal" method="post" action="create">
