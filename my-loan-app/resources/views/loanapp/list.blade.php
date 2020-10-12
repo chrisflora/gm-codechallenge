@@ -5,6 +5,9 @@
 	}
 	
 </style>
+<div><a href="loanapp/create">Create a Loan Application</a></div>
+<br/>
+<br/>
 
 <table>
 	<tr>
@@ -18,7 +21,7 @@
 
 	@foreach ($a->borrowers as $b)
 	<tr>
-		<td>{{ $a->id }}</td>
+		<td><a href="api/loanapp/{{ $a->id }}">{{ $a->id }}</a></td>
 		<td>{{ $b->first_name }}{{ $b->last_name }}</td>
 		<td>{{ $b->job_title }}</td>
 		<td>{{ $b->annual_income }}</td>

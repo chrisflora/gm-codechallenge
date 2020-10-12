@@ -1,1 +1,1 @@
-<h1>Hello</h1>
+<div><a href="loanapp/create">Create a Loan Application</a></div>
