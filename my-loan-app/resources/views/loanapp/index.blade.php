@@ -1,1 +1,5 @@
-<div><a href="loanapp/create">Create a Loan Application</a></div>
+@extends('layout')
+
+@section('bodyContent')
+
+@endsection
