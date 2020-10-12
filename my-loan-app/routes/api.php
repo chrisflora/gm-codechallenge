@@ -35,6 +35,8 @@ Route::get('loanapp/{id}', function($id) {
 			$resultLoanApp['bank_accounts'][] = $b->bank_account;
 		}
 	}
+	$resultLoanApp['created_at'] = $loanApp->created_at->format('Y-m-d H:i:s A');
+	$resultLoanApp['updated_at'] = $loanApp->updated_at->format('Y-m-d H:i:s A');
 
 	return json_encode($resultLoanApp);
 });
