@@ -42,4 +42,17 @@ Don't be afraid to get creative and have some fun!
  - Clone this repository to your local directory to be served from
  - Run "composer update" to make sure your installation is up to date.
  - Copy the .env.develop file to a new file called ".env", within the "my-loan-app" root directory
+ - Modifiy the .env file to contain your mysql connection information (host/username/pass/database-name/etc...)
+ - Run "php artisan migrate" command to create the necessary tables
  - Load site
+
+## Site information
+
+ - The site's home page will be an extremely simple "loan application page", with a very small form to fill out that allows for 2 borrowers.  This could be modified to allow for more than 2 borrowrs, but for the purposes of this assignement, you can only have a maximum of 2.
+ - Once you have entered a "Loan Application", you will be taken to a list of applications.   If the application has two borrowers, you will see 2 records, if there is only one borrower, you will see only one record.
+ - On the left of this table is a field for "ID", which is clickable.  THis will take you to an exposed API enpoint that will yield the application information, the total income for the application (adding all borrower's information together), and the bank accounts for those borrowers.
+
+## Unit Testing
+
+ - Several PHPUnit tests have been written.  To run them, you just need to go to the command line root directory of "my-loan-app" and run 
+"phpunit".  It will run several tests and give you the result.   There are both model tests and api tests.

@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'LoanAppController@create');
 Route::get('/loanapp', 'LoanAppController@listapps');
 Route::get('/loanapp/list', 'LoanAppController@listapps');
 Route::get('/loanapp/create', 'LoanAppController@create');

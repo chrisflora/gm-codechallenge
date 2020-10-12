@@ -42,32 +42,37 @@ class LoanAppController extends Controller
         $application = new LoanApplication;
         $application->save();   
 
+        if(!empty($request->first_name1) && (!empty($request->last_name1)))
+        {
+            $borrower1 = new Borrower;
+            if(!empty($request->first_name1)) { $borrower1->first_name = $request->first_name1; }
+            if(!empty($request->last_name1)) { $borrower1->last_name = $request->last_name1; }
+            if(!empty($request->job_title1)) { $borrower1->job_title = $request->job_title1; }
+            if(!empty($request->annual_income1)) { $borrower1->annual_income = $request->annual_income1; }
+            if(!empty($request->bank_account1)) { $borrower1->bank_account = $request->bank_account1; }
+            $borrower1->save();
 
-        $borrower1 = new Borrower;
-        if(!empty($request->first_name1)) { $borrower1->first_name = $request->first_name1; }
-        if(!empty($request->last_name1)) { $borrower1->last_name = $request->last_name1; }
-        if(!empty($request->job_title1)) { $borrower1->job_title = $request->job_title1; }
-        if(!empty($request->annual_income1)) { $borrower1->annual_income = $request->annual_income1; }
-        if(!empty($request->bank_account1)) { $borrower1->bank_account = $request->bank_account1; }
-        $borrower1->save();
+            $appBorrower1 = new LoanAppBorrowers;
+            $appBorrower1->loan_application_id = $application->id;
+            $appBorrower1->borrower_id = $borrower1->id;
+            $appBorrower1->save();
+        }
 
-        $appBorrower1 = new LoanAppBorrowers;
-        $appBorrower1->loan_application_id = $application->id;
-        $appBorrower1->borrower_id = $borrower1->id;
-        $appBorrower1->save();
+        if(!empty($request->first_name2) && (!empty($request->last_name2)))
+        {
+            $borrower2 = new Borrower;
+            if(!empty($request->first_name2)) { $borrower2->first_name = $request->first_name2; }
+            if(!empty($request->last_name2)) { $borrower2->last_name = $request->last_name2; }
+            if(!empty($request->job_title2)) { $borrower2->job_title = $request->job_title2; }
+            if(!empty($request->annual_income2)) { $borrower2->annual_income = $request->annual_income2; }
+            if(!empty($request->bank_account2)) { $borrower2->bank_account = $request->bank_account2; }
+            $borrower2->save();
 
-        $borrower2 = new Borrower;
-        if(!empty($request->first_name2)) { $borrower2->first_name = $request->first_name2; }
-        if(!empty($request->last_name2)) { $borrower2->last_name = $request->last_name2; }
-        if(!empty($request->job_title2)) { $borrower2->job_title = $request->job_title2; }
-        if(!empty($request->annual_income2)) { $borrower2->annual_income = $request->annual_income2; }
-        if(!empty($request->bank_account2)) { $borrower2->bank_account = $request->bank_account2; }
-        $borrower2->save();
-
-        $appBorrower2 = new LoanAppBorrowers;
-        $appBorrower2->loan_application_id = $application->id;
-        $appBorrower2->borrower_id = $borrower2->id;
-        $appBorrower2->save();
+            $appBorrower2 = new LoanAppBorrowers;
+            $appBorrower2->loan_application_id = $application->id;
+            $appBorrower2->borrower_id = $borrower2->id;
+            $appBorrower2->save();
+        }
 
         return redirect('loanapp/list');
     }
